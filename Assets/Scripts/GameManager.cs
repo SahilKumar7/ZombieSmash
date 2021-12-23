@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -144,4 +145,14 @@ public class GameManager : MonoBehaviour
             scoreThreshold *= 2;
         }
     }
+
+    public void OnRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void OnMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    
 }
