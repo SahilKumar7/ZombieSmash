@@ -7,9 +7,11 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameObject[] zombies;
-    public bool isRising = false;
-    public bool isFalling = false;
-    public int riseSpeed = 1;
+    private bool isRising = false;
+    private bool isFalling = false;
+
+    private int riseSpeed = 1;
+    private int scoreThreshold = 5;
 
     private int zombiesSmashed;
     private int livesRemaining;
@@ -23,12 +25,15 @@ public class GameManager : MonoBehaviour
     public Image life3;
     public TMP_Text score;
 
+    public Button gameOverButton;
+
     // Start is called before the first frame update
     void Start()
     {
         zombiesSmashed = 0;
         livesRemaining = 3;
         gameOver = false;
+        score.text = "0";
         PickNewZombie();
     }
 
@@ -91,6 +96,8 @@ public class GameManager : MonoBehaviour
     {
         // increase score
         zombiesSmashed++;
+        IncreaseSpawnSpeed();
+        score.text = zombiesSmashed.ToString();
 
         // kill enemy
         zombies[activeZombieIndex].transform.position = startPosition;
@@ -126,6 +133,15 @@ public class GameManager : MonoBehaviour
             life3.gameObject.SetActive(false);
 
             gameOver = true;
+            gameOverButton.gameObject.SetActive(true);
+        }
+    }
+    private void IncreaseSpawnSpeed()
+    {
+        if (zombiesSmashed >= scoreThreshold)
+        {
+            riseSpeed++;
+            scoreThreshold *= 2;
         }
     }
 }
