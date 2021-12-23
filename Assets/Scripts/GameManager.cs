@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class GameManager : MonoBehaviour
 
     public Vector2 startPosition;
     private int activeZombieIndex = 0;
+
+    public Image life1;
+    public Image life2;
+    public Image life3;
+    public TMP_Text score;
 
     // Start is called before the first frame update
     void Start()
@@ -51,11 +58,7 @@ public class GameManager : MonoBehaviour
                     isRising = false;
                     livesRemaining--;
 
-                    if (livesRemaining == 0)
-                    {
-                        // game over
-                        gameOver = true;
-                    }
+                    UpdateLifeUI();
                 }
                 else
                 {
@@ -93,5 +96,36 @@ public class GameManager : MonoBehaviour
         zombies[activeZombieIndex].transform.position = startPosition;
 
         PickNewZombie();
+    }
+
+    public void UpdateLifeUI()
+    {
+        if (livesRemaining == 3)
+        {
+            life1.gameObject.SetActive(true);
+            life2.gameObject.SetActive(true);
+            life3.gameObject.SetActive(true);
+        }
+        else if (livesRemaining == 2)
+        {
+            life1.gameObject.SetActive(true);
+            life2.gameObject.SetActive(true);
+            life3.gameObject.SetActive(false);
+        }
+        else if (livesRemaining == 1)
+        {
+            life1.gameObject.SetActive(true);
+            life2.gameObject.SetActive(false);
+            life3.gameObject.SetActive(false);
+        }
+        else if (livesRemaining == 0)
+        {
+            // gameOver
+            life1.gameObject.SetActive(false);
+            life2.gameObject.SetActive(false);
+            life3.gameObject.SetActive(false);
+
+            gameOver = true;
+        }
     }
 }

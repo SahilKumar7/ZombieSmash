@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 171242384}
   - component: {fileID: 171242383}
   m_Layer: 5
-  m_Name: Heart (1)
+  m_Name: Heart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 246244724}
   - component: {fileID: 246244723}
   m_Layer: 5
-  m_Name: Heart 2
+  m_Name: Heart-lost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1484,6 +1484,10 @@ MonoBehaviour:
   isFalling: 0
   riseSpeed: 1
   startPosition: {x: 0, y: 0}
+  life1: {fileID: 1281024606}
+  life2: {fileID: 171242383}
+  life3: {fileID: 1521339261}
+  score: {fileID: 2085716964}
 --- !u!4 &953159586
 Transform:
   m_ObjectHideFlags: 0
@@ -1850,7 +1854,7 @@ GameObject:
   - component: {fileID: 1281024607}
   - component: {fileID: 1281024606}
   m_Layer: 5
-  m_Name: Heart
+  m_Name: Heart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1926,7 +1930,7 @@ GameObject:
   - component: {fileID: 1393662927}
   - component: {fileID: 1393662926}
   m_Layer: 5
-  m_Name: Heart 2 (1)
+  m_Name: Heart-lost2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2002,7 +2006,7 @@ GameObject:
   - component: {fileID: 1521339262}
   - component: {fileID: 1521339261}
   m_Layer: 5
-  m_Name: Heart (2)
+  m_Name: Heart3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2300,7 +2304,7 @@ GameObject:
   - component: {fileID: 1841634289}
   - component: {fileID: 1841634288}
   m_Layer: 5
-  m_Name: Heart 2 (2)
+  m_Name: Heart-lost3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
