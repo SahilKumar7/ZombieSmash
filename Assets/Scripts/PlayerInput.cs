@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public AudioClip[] smashSounds;
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -21,6 +24,7 @@ public class PlayerInput : MonoBehaviour
             {
                 if (hit.collider.tag == "Enemy")
                 {
+                    audioSource.PlayOneShot(smashSounds[Random.Range(0, smashSounds.Length)], 0.3f);
                     gameObject.GetComponent<GameManager>().KillEnemy();
                 }
             }
