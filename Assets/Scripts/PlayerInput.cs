@@ -28,6 +28,7 @@ public class PlayerInput : MonoBehaviour
                 {
                     audioSource.PlayOneShot(smashSounds[Random.Range(0, smashSounds.Length)], 0.3f);
                     gameObject.GetComponent<GameManager>().KillEnemy();
+                    Camera.main.GetComponent<Animator>().SetTrigger("Shake");
                     DisplayBloodEffect(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 }
             }
