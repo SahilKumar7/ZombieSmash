@@ -7,6 +7,8 @@ public class PlayerInput : MonoBehaviour
     public AudioClip[] smashSounds;
     private AudioSource audioSource;
 
+    public GameObject bloodEffect;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,8 +28,15 @@ public class PlayerInput : MonoBehaviour
                 {
                     audioSource.PlayOneShot(smashSounds[Random.Range(0, smashSounds.Length)], 0.3f);
                     gameObject.GetComponent<GameManager>().KillEnemy();
+                    DisplayBloodEffect(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 }
             }
         }
+    }
+
+    private void DisplayBloodEffect(Vector2 pos)
+    {
+        bloodEffect.transform.position = pos;
+        bloodEffect.GetComponent<Animator>().SetTrigger("Smashed");
     }
 }
