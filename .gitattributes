@@ -12,3 +12,5 @@
 *.mat text eol=lf
 *.mask text eol=lf
 *.spriteatlas text eol=lf
+*.shader linguist-detectable=false
+*.cginc linguist-detectable=false
